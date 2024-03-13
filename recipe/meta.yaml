@@ -1,5 +1,5 @@
 {% set name = "java-access-bridge-wrapper" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/java_access_bridge_wrapper-{{ version }}.tar.gz
-  sha256: bec4bff34d4c33e54f98efb8cafc2d2dc805bd756a8c08e5e5150f0520b074b2
+  sha256: 77b9e88d84a74794fa69fda486dc756a8b4f69442d3f51551eb51935d8be70ed
 
 build:
   noarch: python
