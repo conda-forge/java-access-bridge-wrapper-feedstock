@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/java_access_bridge_wrapper-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/java_access_bridge_wrapper-{{ version }}.tar.gz
   sha256: 77b9e88d84a74794fa69fda486dc756a8b4f69442d3f51551eb51935d8be70ed
 
 build:
@@ -14,16 +14,16 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - java_tree_reader = 'JABWrapper.context_tree_reader:main'
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6,<4.0
+    - python {{ python_min }}
     - poetry >=0.12
     - poetry-core
     - pip
   run:
-    - python >=3.6.2,<4.0.0
+    - python >={{ python_min }},<4.0.0
     - pywin32-on-windows
     - pywin32 >=300,<304
     - __win
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/robocorp/java-access-bridge-wrapper.git
