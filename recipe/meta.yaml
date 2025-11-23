@@ -1,5 +1,5 @@
 {% set name = "java-access-bridge-wrapper" %}
-{% set version = "1.2.0" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/java_access_bridge_wrapper-{{ version }}.tar.gz
-  sha256: 77b9e88d84a74794fa69fda486dc756a8b4f69442d3f51551eb51935d8be70ed
+  sha256: eb7d067f5c9fe951110cc532ee6045fd204b31ab7294208eb1db2bbd31ea690e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - java_tree_reader = 'JABWrapper.context_tree_reader:main'
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -24,7 +24,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<4.0.0
-    - pywin32-on-windows
+    - pywin32-on-windows >=300,<=311
     - pywin32 >=300,<304
     - __win
 
